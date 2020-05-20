@@ -46,5 +46,6 @@ public class ProductServiceUnitTests {
         EntityModel<Product> result = productService.one((long) 5);
 
         Assertions.assertEquals(product.getName(), result.getContent().getName());
+//        Assertions.assertEquals(product.getName(), "paul");
     }
 }

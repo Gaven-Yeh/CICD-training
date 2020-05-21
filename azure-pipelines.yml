@@ -23,9 +23,16 @@ steps:
     mavenOptions: '-Xmx3072m'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-
+    sonarQubeRunAnalysis: false
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Personal SonarCloud'
+    organization: 'gaven-accenture-training'
+    scannerMode: 'Other'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

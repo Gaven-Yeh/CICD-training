@@ -15,19 +15,17 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'cicd-demo/pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    # sqAnalysisEnabled: true
-    goals: 'package'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    mavenVersionOption: 'Default'
+    mavenOptions: '-Xmx3072m'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
 
-# - task: PublishPipelineArtifact@1
-#   inputs:
-#     targetPath: '$(Pipeline.Workspace)/cicd-demo/target/cicd-demo-0.0.1-SNAPSHOT.jar'
-#     publishLocation: 'pipeline'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

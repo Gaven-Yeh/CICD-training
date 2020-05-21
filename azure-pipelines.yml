@@ -25,5 +25,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: '$(Pipeline.Workspace)/cicd-demo/target/cicd-demo-0.0.1-SNAPSHOT.jar'
     publishLocation: 'pipeline'

@@ -21,14 +21,21 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    # sqAnalysisEnabled: true
     goals: 'package'
 
 # - task: PublishPipelineArtifact@1
 #   inputs:
 #     targetPath: '$(Pipeline.Workspace)/cicd-demo/target/cicd-demo-0.0.1-SNAPSHOT.jar'
 #     publishLocation: 'pipeline'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '**/target'
+    Contents: '**/*.jar'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+    

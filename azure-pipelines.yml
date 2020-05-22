@@ -47,7 +47,7 @@ steps:
     repository: 'gavenyeh/cicd-demo'
     command: 'push'
     tags: |
-      docker.io/gavenyeh/cicd-demo:latest
+      latest
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

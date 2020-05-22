@@ -20,7 +20,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'cicd-demo/pom.xml'
-    options: 'spring-boot:build-image -Dspring-boot.build-image.imageName=***/cicd-demo'
+    options: 'spring-boot:build-image -Dspring-boot.build-image.imageName=docker.io/gavenyeh/cicd-demo:latest'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -48,7 +48,7 @@ steps:
     command: 'push'
     tags: |
       $(Build.BuildId)
-      gavenyeh/cicd-demo
+      docker.io/gavenyeh/cicd-demo:latest
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

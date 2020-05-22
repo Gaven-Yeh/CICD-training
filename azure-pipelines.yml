@@ -46,6 +46,9 @@ steps:
     containerRegistry: 'gaven-accenture-docker-hub'
     repository: 'gavenyeh/cicd-demo'
     command: 'push'
+    tags: |
+      $(Build.BuildId)
+      'latest'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

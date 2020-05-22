@@ -47,7 +47,6 @@ steps:
     repository: 'gavenyeh/cicd-demo'
     command: 'push'
     tags: |
-      # $(Build.BuildId)
       docker.io/gavenyeh/cicd-demo:latest
 - task: CopyFiles@2
   inputs:

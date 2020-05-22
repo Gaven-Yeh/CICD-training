@@ -49,6 +49,7 @@ steps:
     tags: |
       $(Build.BuildId)
       latest
+      gavenyeh/cicd-demo
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

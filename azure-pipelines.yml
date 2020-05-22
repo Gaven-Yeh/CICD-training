@@ -20,7 +20,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'cicd-demo/pom.xml'
-    options: './mvnw spring-boot:build-image'
+    options: 'spring-boot:build-image'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
@@ -35,17 +35,17 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
-# - task: Docker@2
-#   displayName: Login to Docker Hub
-#   inputs:
-#     containerRegistry: 'gaven-accenture-docker-hub'
-#     command: 'login'
-# - task: Docker@2
-#   displayName: Build and Push
-#   inputs:
-#     repository: 'gavenyeh/cicd-demo'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
+- task: Docker@2
+  displayName: Login to Docker Hub
+  inputs:
+    containerRegistry: 'gaven-accenture-docker-hub'
+    command: 'login'
+- task: Docker@2
+  displayName: Push
+  inputs:
+    containerRegistry: 'gaven-accenture-docker-hub'
+    repository: 'gavenyeh/cicd-demo'
+    command: 'push'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

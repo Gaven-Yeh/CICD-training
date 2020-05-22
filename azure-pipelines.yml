@@ -48,7 +48,7 @@ steps:
     command: 'push'
     tags: |
       $(Build.BuildId)
-      'latest'
+      latest
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'cicd-demo/target'

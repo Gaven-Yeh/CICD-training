@@ -43,6 +43,7 @@ steps:
 - task: Docker@2
   displayName: Push
   inputs:
+    containerRegistry: 'gaven-accenture-docker-hub'
     repository: 'gavenyeh/cicd-demo'
     command: 'push'
 - task: CopyFiles@2

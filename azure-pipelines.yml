@@ -20,7 +20,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'cicd-demo/pom.xml'
-    options: './mvnw spring-boot:build-image'
+    options: 'spring-boot:build-image'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'

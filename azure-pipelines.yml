@@ -58,4 +58,11 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-    
+- task: BeanstalkDeployApplication@1
+  inputs:
+    regionName: 'us-east-2'
+    applicationName: 'first-app'
+    environmentName: 'FirstApp-env'
+    applicationType: 's3'
+    deploymentBundleBucket: 'gaven.yeh-test'
+    deploymentBundleKey: 'Dockerrun.aws.json'

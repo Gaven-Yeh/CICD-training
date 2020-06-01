@@ -60,6 +60,7 @@ steps:
     publishLocation: 'Container'
 - task: BeanstalkDeployApplication@1
   inputs:
+    awsCredentials: 'aws-gaven.yeh'
     regionName: 'us-east-2'
     applicationName: 'first-app'
     environmentName: 'FirstApp-env'

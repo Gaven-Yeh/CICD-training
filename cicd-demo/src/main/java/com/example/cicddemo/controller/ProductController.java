@@ -16,6 +16,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @GetMapping
+    public String home() {
+        return "<h1>Welcome!</h1>";
+    }
+
     @GetMapping("/products")
     public CollectionModel<EntityModel<Product>> all() {
         return productService.all();

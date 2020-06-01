@@ -18,7 +18,7 @@ public class ProductController {
 
     @GetMapping
     public String home() {
-        return "<h1>Welcome!</h1>";
+        return "<h1>Welcome to the home page</h1>";
     }
 
     @GetMapping("/products")

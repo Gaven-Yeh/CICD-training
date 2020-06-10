@@ -85,3 +85,4 @@ steps:
     provider: 'aws'
     command: 'plan'
     workingDirectory: 'learn-terraform-code-organization-master'
+    environmentServiceNameAWS: 'aws-terraform'

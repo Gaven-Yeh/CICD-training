@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "dev" {
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::${var.dev_prefix}-${random_pet.petname.id}/*"
+                "arn:aws:s3:::${var.dev_prefix}-gaven-test/*"
             ]
         }
     ]
@@ -64,7 +64,7 @@ resource "aws_s3_bucket" "prod" {
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws:s3:::${var.prod_prefix}-${random_pet.petname.id}/*"
+                "arn:aws:s3:::${var.prod_prefix}-gaven-test/*"
             ]
         }
     ]

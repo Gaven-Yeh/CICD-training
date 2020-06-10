@@ -69,7 +69,7 @@ steps:
 #     deploymentBundleKey: 'Dockerrun.aws.json'
 - task: TerraformInstaller@0
   inputs:
-    terraformVersion: '0.12.3'
+    terraformVersion: '0.12.26'
 - task: TerraformTaskV1@0
   displayName: 'terraform init'
   inputs:

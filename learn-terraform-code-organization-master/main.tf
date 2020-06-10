@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 
-resource "random_pet" "petname" {
-  length    = 3
-  separator = "-"
-}
+# resource "random_pet" "petname" {
+#   length    = 3
+#   separator = "-"
+# }
 
 resource "aws_s3_bucket" "dev" {
-  bucket = "${var.dev_prefix}-${random_pet.petname.id}"
+  bucket = "${var.dev_prefix}-gaven-test"
   acl    = "public-read"
 
   policy = <<EOF
@@ -49,7 +49,7 @@ resource "aws_s3_bucket_object" "dev" {
 }
 
 resource "aws_s3_bucket" "prod" {
-  bucket = "${var.prod_prefix}-${random_pet.petname.id}"
+  bucket = "${var.prod_prefix}-gaven-test"
   acl    = "public-read"
 
   policy = <<EOF

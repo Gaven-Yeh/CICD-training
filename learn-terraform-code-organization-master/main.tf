@@ -16,7 +16,7 @@ terraform {
 # }
 
 resource "aws_s3_bucket" "dev" {
-  bucket = "${var.dev_prefix}-gaven-test"
+  bucket = "${var.dev_prefix}-gaven-testing"
   acl    = "public-read"
 
   policy = <<EOF

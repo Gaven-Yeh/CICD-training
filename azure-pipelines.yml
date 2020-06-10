@@ -67,3 +67,22 @@ steps:
 #     applicationType: 's3'
 #     deploymentBundleBucket: 'gaven.yeh-test'
 #     deploymentBundleKey: 'Dockerrun.aws.json'
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: '0.12.3'
+- task: TerraformTaskV1@0
+  displayName: 'terraform init'
+  inputs:
+    provider: 'aws'
+    command: 'init'
+    workingDirectory: 'learn-terraform-code-organization-master'
+    backendServiceAWS: 'aws-terraform'
+    backendAWSBucketName: 'gaven-test'
+    backendAWSKey: 'azure-terraform/terraform.tfstate'
+- task: TerraformTaskV1@0
+  displayName: 'terraform plan'
+  inputs:
+    provider: 'aws'
+    command: 'plan'
+    workingDirectory: 'learn-terraform-code-organization-master'
+    environmentServiceNameAWS: 'aws-terraform'

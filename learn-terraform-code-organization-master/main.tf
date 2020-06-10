@@ -2,13 +2,13 @@ provider "aws" {
   region = var.region
 }
 
-# terraform {
-#   backend "s3" {
-#     bucket = "gaven-test"
-#     key    = "azure-terraform/terraform.tfstate"
-#     region = "ap-southeast-1"
-#   }
-# }
+terraform {
+  backend "s3" {
+    bucket = "gaven-test"
+    key    = "azure-terraform/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 
 # resource "random_pet" "petname" {
 #   length    = 3
